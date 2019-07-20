@@ -200,6 +200,11 @@ RestConfig::$ROUTE_MAP = array(
         RestConfig::authorization_check("patients", "med");
         return (new PrescriptionRestController())->getAll($pid);
     },
+    "POST /api/patient/:pid/prescription" => function ($pid) {
+        RestConfig::authorization_check("patients", "med");
+        $data = (array)(json_decode(file_get_contents("php://input")));
+        return (new PrescriptionRestController())->create($data);
+    },
     "GET /api/patient/:pid/surgery" => function ($pid) {
         RestConfig::authorization_check("patients", "med");
         return (new ListRestController())->getAll($pid, "surgery");
