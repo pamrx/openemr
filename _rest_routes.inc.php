@@ -30,6 +30,7 @@ use OpenEMR\RestControllers\ONoteRestController;
 use OpenEMR\RestControllers\DocumentRestController;
 use OpenEMR\RestControllers\InsuranceRestController;
 use OpenEMR\RestControllers\MessageRestController;
+use OpenEMR\RestControllers\PrescriptionRestController;
 
 
 // Note some Http clients may not send auth as json so a function
@@ -194,6 +195,10 @@ RestConfig::$ROUTE_MAP = array(
     "DELETE /api/patient/:pid/medication/:mid" => function ($pid, $mid) {
         RestConfig::authorization_check("patients", "med");
         return (new ListRestController())->delete($pid, $mid, "medication");
+    },
+    "GET /api/patient/:pid/prescription" => function ($pid) {
+        RestConfig::authorization_check("patients", "med");
+        return (new PrescriptionRestController())->getAll($pid);
     },
     "GET /api/patient/:pid/surgery" => function ($pid) {
         RestConfig::authorization_check("patients", "med");
