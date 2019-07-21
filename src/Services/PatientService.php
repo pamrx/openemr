@@ -222,7 +222,7 @@ class PatientService
                    country_code, 
                    phone_contact,
                    email
-                   dob,
+                   DATE_FORMAT(dob, '%Y-%m-%d') as dob,
                    sex,
                    race,
                    ethnicity,
@@ -280,8 +280,8 @@ class PatientService
                    state, 
                    country_code, 
                    phone_contact,
-                   email
-                   dob,
+                   email,
+                   DATE_FORMAT(dob, '%Y-%m-%d') as dob,
                    sex,
                    race,
                    ethnicity,
