@@ -129,7 +129,7 @@ class PatientService
         $sql .= "     dob=?,";
         $sql .= "     sex=?,";
         $sql .= "     race=?,";
-        $sql .= "     ethnicity=?";
+        $sql .= "     ethnicity=?,";
         $sql .= "     adherence=?";
 
         $results = sqlInsert(
@@ -177,7 +177,7 @@ class PatientService
         $sql .= "     dob=?,";
         $sql .= "     sex=?,";
         $sql .= "     race=?,";
-        $sql .= "     ethnicity=?";
+        $sql .= "     ethnicity=?,";
         $sql .= "     adherence=?";
         $sql .= "     where pid=?";
 
