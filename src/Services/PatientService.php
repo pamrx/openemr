@@ -221,7 +221,7 @@ class PatientService
                    state, 
                    country_code, 
                    phone_contact,
-                   email
+                   email,
                    DATE_FORMAT(dob, '%Y-%m-%d') as dob,
                    sex,
                    race,
