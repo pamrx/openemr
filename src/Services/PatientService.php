@@ -130,6 +130,7 @@ class PatientService
         $sql .= "     sex=?,";
         $sql .= "     race=?,";
         $sql .= "     ethnicity=?";
+        $sql .= "     adherence=?";
 
         $results = sqlInsert(
             $sql,
@@ -148,7 +149,8 @@ class PatientService
                 $data["dob"],
                 $data["sex"],
                 $data["race"],
-                $data["ethnicity"]
+                $data["ethnicity"],
+                $data["adherence"]
             )
         );
 
@@ -176,6 +178,7 @@ class PatientService
         $sql .= "     sex=?,";
         $sql .= "     race=?,";
         $sql .= "     ethnicity=?";
+        $sql .= "     adherence=?";
         $sql .= "     where pid=?";
 
         return sqlStatement(
@@ -195,6 +198,7 @@ class PatientService
                 $data["sex"],
                 $data["race"],
                 $data["ethnicity"],
+                $data["adherence"],
                 $pid
             )
         );
@@ -221,7 +225,8 @@ class PatientService
                    dob,
                    sex,
                    race,
-                   ethnicity
+                   ethnicity,
+                   adherence
                 FROM patient_data";
 
         if ($search['name'] || $search['fname'] || $search['lname'] || $search['dob']) {
@@ -279,7 +284,8 @@ class PatientService
                    dob,
                    sex,
                    race,
-                   ethnicity
+                   ethnicity,
+                   adherence
                 FROM patient_data
                 WHERE pid = ?";
 
